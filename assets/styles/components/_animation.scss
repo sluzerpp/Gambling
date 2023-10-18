@@ -1,0 +1,180 @@
+.animation {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+
+  &__line, &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__block {
+    animation: marques 15s linear infinite;
+  }
+
+  &__line {
+    margin-top: -50%; 
+
+    &_reverse {
+      .animation__block {
+        animation-name: marques-reverse;
+      }
+    }
+
+    &:nth-child(1) {
+      opacity: 0.2;
+    }
+    &:nth-child(2) {
+      opacity: 0.6;
+    }
+    &:nth-child(3) {
+      opacity: 0.4;
+    }
+  }
+
+  &__item {
+    width: 99px;
+    height: 99px;
+    margin: 15px 0;
+
+    &_wide {
+      box-shadow: 1px 1px 0 2px var(--color) inset, -1px -1px 0 2px var(--color) inset;
+      border-radius: 100px;
+      min-height: 210px;
+
+      &_end {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+}
+
+@keyframes marques {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes marques-reverse {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes marques-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marques-horizontal-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1250px) {
+  .animation {
+    &__item {
+      width: 70px;
+      height: 70px;
+
+      &_wide {
+        min-height: 170px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .animation {
+    flex-direction: column-reverse;
+    height: max-content;
+    padding: 0;
+
+    &__line, &__block {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    &__block {
+      animation: marques-horizontal 15s linear infinite;
+    }
+  
+    &__line {
+      margin-top: initial;
+      margin-left: -50%;
+  
+      &_reverse {
+        .animation__block {
+          animation-name: marques-horizontal-reverse;
+        }
+      }
+  
+      &:nth-child(1) {
+        opacity: 0.2;
+      }
+      &:nth-child(2) {
+        opacity: 0.6;
+      }
+      &:nth-child(3) {
+        opacity: 0.4;
+      }
+    }
+  
+    &__item {
+      margin: 0 10px;
+      width: 70px;
+      min-width: 70px;
+
+      svg {
+        width: 70px;
+        min-width: 70px;
+      }
+  
+      &_wide {
+        min-height: initial;
+        min-width: 160px;
+        box-shadow: 1px 1px 0 1px var(--color) inset, -1px -1px 0 1.5px var(--color) inset;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .animation {
+    &__item {
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
+      margin: 0 8.5px;
+
+      svg {
+        width: 50px;
+        min-width: 50px;
+      }
+
+      &_wide {
+        min-width: 108px;
+      }
+    }
+  }
+}

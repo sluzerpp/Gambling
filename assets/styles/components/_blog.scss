@@ -1,0 +1,162 @@
+.blog {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  max-width: 530px;
+  min-width: 400px;
+
+  &__content {
+    width: 100%;
+    height: 595px;
+    padding-right: 16px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, .12);
+    border: 3px solid var(--blue);
+    backdrop-filter: blur(20px);
+    border-radius: 100px;
+  }
+
+  &__items {
+    height: 100%;
+    padding: 24px 16px 24px 24px;
+    overflow-y: auto;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin: 100px 0;
+      background-color: rgba(255, 255, 255, .12);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--blue);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: var(--blue);
+    }
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1em;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__ul {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+
+  &__item {
+    display: grid;
+    gap: 16px;
+    border-radius: 196px;
+    padding: 16px 64px;
+    background-color: var(--blue-dark);
+    transition: background 0.15s linear;
+
+    &-title {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 28px;
+      color: var(--white);
+    }
+
+    &-date {
+      font-size: 14px;
+      opacity: 0.6;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    &:hover {
+      background-color: var(--blue);
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .blog {
+    min-width: 320px;
+
+    &__content {
+      height: 540px;
+    }
+
+    &__item {
+      padding: 16px 48px;
+      border-radius: 60px;
+      
+      &-title {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .blog {
+    gap: 16px;
+    margin-bottom: 120px;
+
+    &__title {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .blog {
+    min-width: initial;
+
+    &__content {
+      border-radius: 50px;
+      padding-right: 6px;
+      height: 421px;
+    }
+
+    &__items {
+      padding: 10px 6px 10px 10px;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        margin: 60px 0;
+      }
+    }
+
+    &__item {
+      gap: 6px;
+      border-radius: 40px;
+      padding: 15px 35px;
+  
+      &-title {
+        font-size: 16px;
+        line-height: 20px;
+      }
+  
+      &-date {
+        font-size: 14px;
+        opacity: 0.6;
+        color: var(--white);
+        font-weight: 500;
+      }
+  
+      &:hover {
+        background-color: var(--blue);
+      }
+    }
+  }
+}
